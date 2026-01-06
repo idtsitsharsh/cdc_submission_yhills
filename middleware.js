@@ -2,11 +2,6 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
 export function middleware(req) {
-  const { pathname } = req.nextUrl;
-  if (pathname === "/api/admin/login") {
-    return NextResponse.next();
-  }
-
   const token = req.cookies.get("token")?.value;
 
   if (!token) {
@@ -24,9 +19,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: [
-    "/dashboard/:path*",
-    "/api/admin/check",
-    "/api/admin/courses/:path*",
-  ],
+  matcher: ["/dashboard/:path*"], // ✅ ONLY pages
 };
