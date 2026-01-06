@@ -50,7 +50,7 @@ export async function POST(req) {
     response.cookies.set("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
       maxAge: 60 * 60, // 1 hour
       path: "/",
     });
