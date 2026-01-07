@@ -29,7 +29,7 @@ export default function Navbar() {
     }
 
     checkAuth();
-  }, []);
+  }, [pathname]);
 
   async function logout() {
     try {
